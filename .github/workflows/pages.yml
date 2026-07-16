@@ -1,12 +1,9 @@
 name: Deploy GitHub Pages
 
 on:
+  push:
+    branches: ["main"]
   workflow_dispatch:
-    inputs:
-      base_path:
-        description: "Base path for project pages. Leave empty to use /repository-name."
-        required: false
-        type: string
 
 permissions:
   contents: read
@@ -37,8 +34,6 @@ jobs:
 
       - name: Build static export
         run: npm run build
-        env:
-          NEXT_PUBLIC_BASE_PATH: ${{ inputs.base_path != '' && inputs.base_path || format('/{0}', github.event.repository.name) }}
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
