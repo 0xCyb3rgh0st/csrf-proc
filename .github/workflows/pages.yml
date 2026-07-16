@@ -32,10 +32,25 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build static export
+      - name: Build custom-domain export
+        run: npm run build
+
+      - name: Stage custom-domain export
+        run: |
+          mkdir pages-out
+          cp -R out/. pages-out/
+          rm -rf out .next
+
+      - name: Build GitHub project-path export
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /csrf-proc
+
+      - name: Stage GitHub project-path export
+        run: |
+          mkdir -p pages-out/csrf-proc
+          cp -R out/. pages-out/csrf-proc/
+          rm -rf out .next
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -43,7 +58,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: pages-out
 
   deploy:
     name: Deploy
