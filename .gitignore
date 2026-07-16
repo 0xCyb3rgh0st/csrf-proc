@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# testing and coverage
+coverage/
+playwright-report/
+test-results/
+
+# local env
+.env
+.env.local
+.env.*.local
+
+# local/editor/system files
+.agents/
+.DS_Store
+Thumbs.db
+*.log
+
+# TypeScript
+*.tsbuildinfo

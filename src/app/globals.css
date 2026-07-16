@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.45rem;
+  --background: 210 18% 96%;
+  --foreground: 220 20% 14%;
+  --panel: 0 0% 100%;
+  --muted: 214 20% 90%;
+  --muted-foreground: 218 11% 42%;
+  --border: 214 18% 82%;
+  --primary: 214 78% 45%;
+  --primary-foreground: 0 0% 100%;
+  --compatible: 152 62% 34%;
+  --conditional: 38 92% 42%;
+  --blocked: 0 70% 46%;
+  --warning: 30 95% 45%;
+  --unknown: 220 9% 46%;
+  --information: 193 82% 36%;
+  --sensitive: 338 73% 43%;
+  --local-only: 168 76% 32%;
+}
+
+.dark {
+  --background: 220 24% 8%;
+  --foreground: 210 18% 92%;
+  --panel: 220 21% 12%;
+  --muted: 220 15% 18%;
+  --muted-foreground: 218 11% 66%;
+  --border: 220 15% 22%;
+  --primary: 214 82% 58%;
+  --primary-foreground: 220 24% 8%;
+  --compatible: 151 57% 46%;
+  --conditional: 39 91% 56%;
+  --blocked: 0 72% 58%;
+  --warning: 31 95% 58%;
+  --unknown: 220 10% 62%;
+  --information: 193 86% 52%;
+  --sensitive: 338 79% 62%;
+  --local-only: 168 77% 43%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+button:focus-visible,
+a:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
