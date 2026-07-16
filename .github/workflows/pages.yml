@@ -34,6 +34,8 @@ jobs:
 
       - name: Build static export
         run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /csrf-proc
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

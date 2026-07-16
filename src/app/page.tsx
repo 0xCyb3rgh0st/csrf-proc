@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { RequestStudio } from "@/features/request-studio/request-studio";
 
-export default function Home(): never {
-  redirect("/workspace/");
+export default function Home(): React.ReactElement {
+  return <RequestStudio />;
 }
